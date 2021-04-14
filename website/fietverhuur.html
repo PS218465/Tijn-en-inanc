@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/logo20x20.png" />
+    <link rel="stylesheet" href="css/MainStylesheet.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/verhuur.css">
+    <script src="redirect.js"></script>
+    <title>Home</title>
+</head>
+
+<body style="height: max-content;">
+    <div class="container">
+        <div class="logo">
+            <img id="logo" src="images/logo.png">
+            <div class="zoekbalk">
+                <img id="zoek" src="images/zoek.png">
+                <input type="text">
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="fietss.html">Fietspagina</a></li>
+                <li><a class="active" href="fietverhuur.html">Fietsverhuur</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="opening.html">Openingtijden</a></li>
+                <li><a href="overons.html">Over ons</a></li>
+            </ul>
+        </nav>
+        
+        <div class="verhuur">
+            <div class="tabel">
+                <table>
+                    <tr>
+                        <td><input id="checkbox1" name="fiets" type="checkbox"></td>
+                        <th>Aanhangfiets</th>
+                        <td>€ 20,00 / dag</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td><input id="checkbox2" type="checkbox"></td>
+                        <th>Bakfiets</th>
+                        <td>€ 35,00 / dag</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td><input id="checkbox3" type="checkbox"></td>
+                        <th>Driewielfiets</th>
+                        <td>€ 30,00 / dag</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td><input id="checkbox4" type="checkbox"></td>
+                        <th>Elektrische fiets</th>
+                        <td>€ 30,00 / dag</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td><input id="checkbox5" type="checkbox"></td>
+                        <th>Ligfiets</th>
+                        <td>€ 45,00 / dag</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td><input id="checkbox6" type="checkbox"></td>
+                        <th>Oma fiets</th>
+                        <td>€ 12,50 / dag</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td><input id="checkbox7" type="checkbox"></td>
+                        <th>Speed pedelec</th>
+                        <td>€ 15,00 / dag</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td><input id="checkbox8" type="checkbox"></td>
+                        <th>Stadsfiets</th>
+                        <td>€ 12,50 / dag</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td><input id="checkbox9" type="checkbox"></td>
+                        <th>Vouwfiets</th>
+                        <td>€ 10,00 / dag</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td><input id="checkbox10" type="checkbox"></td>
+                        <th>Zitfiets</th>
+                        <td>€ 20,00 / dag</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td><input id="checkbox11" type="checkbox"></td>
+                        <th>Zitfiets</th>
+                        <td>€ 15,00 / dag</td>
+                        <td>1</td>
+                    </tr>
+                </table>
+                <div class="knop">
+                    <input type="submit" onclick="redirect()" id="submit" value="Huur de fietsen">
+                </div>
+            </div>
+            <div class="picsL">
+                <img class="vrkppic" src="images/verhuur1.jpg">
+            </div>
+            <div class="picsR">
+                <img class="vrkppic" src="images/verhuur2.jpg">
+            </div>
+        </div>
+        <footer>
+            <div class="socials">
+                <h2 class="txtcenter"><u>Social media</u></h2>
+                <p class="txtcenter"><a id="fcb" href="#facebook">Facebook</a></p>
+            </div>
+            <div class="contact">
+                <h2 class="txtcenter"><u>Contact</u></h2>
+                <h3 class="txtcenter">info@defluitendefietser.nl</h3>
+            </div>
+            <div class="alg">
+                <h3 class="txtcenter">&#169; 2021 Fluitende fietser</h3>
+                <p class="txtcenter">Algemene voorwaarde</p>
+                <p class="txtcenter">KVK: 88599665 | BTW NL999888492Z09</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

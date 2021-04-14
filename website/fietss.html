@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/logo20x20.png" />
+    <link rel="stylesheet" href="css/MainStylesheet.css">
+    <link rel="stylesheet" href="css/fietspagina.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/popupimg.css">
+    <script src="popup.js"></script>
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <img id="logo" src="images/logo.png">
+            <div class="zoekbalk">
+                <img id="zoek" src="images/zoek.png">
+                <input type="text">
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a class="active" href="fietss.html">Fietspagina</a></li>
+                <li><a href="fietverhuur.html">Fietsverhuur</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="opening.html">Openingtijden</a></li>
+                <li><a href="overons.html">Over ons</a></li>
+            </ul>
+        </nav>
+        <div class="info">
+            <div class="item1">
+                <div class="vlak">
+                    <img id="myImg" class="vrkppic" alt="Pelikaan Carry On Lady<br>elektrisch<br>geschikt voor zakelijk en prive<br>dames<br>transport<br>Pelikaan<br>nieuw<br>zwart<br>769,00<br>28 Inch 53 cm 3V V-Brakes" src="images/fietsen/1.jpg">
+                    <div class="txtvlak">
+                        <p class="wrap">
+                            <b>Pelikaan Carry On lady</b><br><br>
+                            Klik voor meer info.
+                        </p>
+                        <div class="winkelwagen" onclick="popup()"><a href="#newpage">Voeg toe aan winkelwagen</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="item2">
+                <div class="vlak">
+                    <img id="myImg" class="vrkppic" alt="Allegra voorwielmotor<br>elektrisch<br>geschikt voor zakelijk en prive<br>dames<br>stads<br>Stella<br>nieuw<br>zwart<br>999,00:frameraat S (Lichaamslengte 1,62m - 1,73m)" src="images/fietsen/2.jpg">
+                    <div class="txtvlak">
+                        <p class="wrap">
+                            <b>Allegra voorwielmotor</b><br><br>
+                            Klik voor meer info.
+                        </p>
+                        <div class="winkelwagen" onclick="popup()"><a href="#newpage">Voeg toe aan winkelwagen</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="item3">
+                <div class="vlak">
+                    <img id="myImg" class="vrkppic" alt="Gazelle Orange C7+ HMB 2020<br>elektrisch<br>geschikt voor zakelijk en prive<br>heren<br>stads<br>Gazelle<br>nieuw<br>Blauw<br>2199,00<br>frameraat 53cm(1.66cm-1.77cm)" src="images/fietsen/3.jpg">
+                    <div class="txtvlak">
+                        <p class="wrap">
+                            <b>Gazelle Orange C7</b><br><br>
+                            Klik voor meer info.
+                        </p>
+                        <div class="winkelwagen" onclick="popup()"><a href="#newpage">Voeg toe aan winkelwagen</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="item4">
+                <div class="vlak">
+                    <img id="myImg" class="vrkppic" alt="Gazelle CityGo C7<br>niet elektrisch<br>geschikt voor zakelijk en prive<br>heren<br>Gazelle<br>stads<br>nieuw<br>meerdere<br>679,00<br>wielmaat 28 inches" src="images/fietsen/4.jpg">
+                    <div class="txtvlak">
+                        <p class="wrap">
+                            <b>Gazelle CityGo C7</b><br><br>
+                            Klik voor meer info.
+                        </p>
+                        <div class="winkelwagen" onclick="popup()"><a href="#newpage">Voeg toe aan winkelwagen</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--popup image-->
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
+            <div id="caption"></div>
+        </div>
+        <script>
+            // haalt model op uit de div hierboven
+            var modal = document.getElementById("myModal");
+
+            // selecteerd de gekozen afbeelding
+            var images = document.getElementsByClassName('vrkppic');
+
+            // haalt id op uit div hierboven
+            var modalImg = document.getElementById("img01");
+
+            // alt text
+            var captionText = document.getElementById("caption");
+
+            //zorgt ervoor dat alle 4 de afbeelding vergroot kunnen worden en niet eentje
+            for (var i = 0; i < images.length; i++) {
+                var img = images[i];
+                img.onclick = function () {
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.alt;
+                }
+            }
+
+            //maakt het kruisje
+            var span = document.getElementsByClassName("close")[0];
+
+            // als je op het kruisje klikt sluit de afbeelding
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+        </script>
+
+
+
+        <footer>
+            <div class="socials">
+                <h2 class="txtcenter"><u>Social media</u></h2>
+                <p class="txtcenter"><a id="fcb" href="#facebook">Facebook</a></p>
+            </div>
+            <div class="contact">
+                <h2 class="txtcenter"><u>Contact</u></h2>
+                <h3 class="txtcenter">info@defluitendefietser.nl</h3>
+            </div>
+            <div class="alg">
+                <h3 class="txtcenter">&#169; 2021 Fluitende fietser</h3>
+                <p class="txtcenter">Algemene voorwaarde</p>
+                <p class="txtcenter">KVK: 88599665 | BTW NL999888492Z09</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

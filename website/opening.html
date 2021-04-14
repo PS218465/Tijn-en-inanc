@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/logo20x20.png" />
+    <link rel="stylesheet" href="css/MainStylesheet.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/openingtijd.css">
+    <script src="popup.js"></script>
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <img id="logo" src="images/logo.png">
+            <div class="zoekbalk">
+                <img id="zoek" src="images/zoek.png">
+                <input type="text">
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="fietss.html">Fietspagina</a></li>
+                <li><a href="fietverhuur.html">Fietsverhuur</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a class="active" href="opening.html">Openingtijden</a></li>
+                <li><a href="overons.html">Over ons</a></li>
+            </ul>
+        </nav>
+        <div class="opng">
+            <div class="tbl">
+                <table>
+                    <tr>
+                        <th colspan="2" class="txtcenter">Openingtijden</th>
+                    </tr>
+                    <tr>
+                        <th>Maandag</th>
+                        <td>12:30-18:00</td>
+                    </tr>
+                    <tr>
+                        <th>Dinsdag</th>
+                        <td>08:30-18:00</td>
+                    </tr>
+                    <tr>
+                        <th>Woensdag</th>
+                        <td>08:30-18:00</td>
+                    </tr>
+                    <tr>
+                        <th>Donderdag</th>
+                        <td>08:30-18:00</td>
+                    </tr>
+                    <tr>
+                        <th>Vrijdag</th>
+                        <td>08:30-19:30</td>
+                    </tr>
+                    <tr>
+                        <th>Zaterdag</th>
+                        <td>09:00-17:00</td>
+                    </tr>
+                    <tr>
+                        <th>Zondag</th>
+                        <td>Gesloten</td>
+                    </tr>
+                </table>
+
+                <table class="tbl2">
+                    <tr>
+                        <th colspan="2" class="txtcenter">Meer info</th>
+                    </tr>
+                    <tr>
+                        <th>Adres</th>
+                        <td>Ruwe Putten 30 5674 SL Nuenen</td>
+                    </tr>
+                    <tr>
+                        <th>Telefoon</th>
+                        <td>067762993888</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>info@defluitendefietser.nl</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="rst" id="googleMap"></div>
+            <script>
+                function myMap() {
+                    var mapProp = {
+                        center: new google.maps.LatLng(51.474249, 5.595563),
+                        zoom: 5,
+                    };
+                    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                }
+            </script>
+
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwsIu-rxuWTjig3nZ27NfRpxrV3mguvcU&callback=myMap"></script>
+        </div>
+        <footer>
+            <div class="socials">
+                <h2 class="txtcenter"><u>Social media</u></h2>
+                <p class="txtcenter"><a id="fcb" href="#facebook">Facebook</a></p>
+            </div>
+            <div class="contact">
+                <h2 class="txtcenter"><u>Contact</u></h2>
+                <h3 class="txtcenter">info@defluitendefietser.nl</h3>
+            </div>
+            <div class="alg">
+                <h3 class="txtcenter">&#169; 2021 Fluitende fietser</h3>
+                <p class="txtcenter">Algemene voorwaarde</p>
+                <p class="txtcenter">KVK: 88599665 | BTW NL999888492Z09</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

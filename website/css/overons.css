@@ -1,0 +1,36 @@
+@media only screen and (min-width: 768px) {
+    .overons{
+        background-color: #F7F9FB;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display: grid;
+        grid-template-columns: 1.4fr 0.6fr;
+        grid-template-rows: 0.6fr 1.8fr ;
+        gap: 0px 0px;
+        grid-template-areas:
+          "inf pic"
+          "inf pic";
+    }
+    .pic{
+        margin: auto;
+        grid-area: pic;
+        width: 85%;
+        transition: 300ms;
+    }
+    .pic:hover{
+        transition: 500ms;
+        margin: auto;
+        grid-area: pic;
+        width: 95%;
+    }
+    .inf{
+        text-align: center;
+        grid-area: inf;
+    }
+    #alg{
+        font-size: large;
+    }
+    ol{
+        text-align: center;
+        list-style-position: inside;
+    }
+}

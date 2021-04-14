@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/logo20x20.png" />
+    <link rel="stylesheet" href="css/MainStylesheet.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <script src="popup.js"></script>
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <img id="logo" src="images/logo.png">
+            <div class="zoekbalk">
+                <img id="zoek" src="images/zoek.png">
+                <input type="text">
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="fietss.html">Fietspagina</a></li>
+                <li><a href="fietverhuur.html">Fietsverhuur</a></li>
+                <li><a class="active" href="#about">Contact</a></li>
+                <li><a href="opening.html">Openingtijden</a></li>
+                <li><a href="overons.html">Over ons</a></li>
+            </ul>
+        </nav>
+        <form>
+            <div class="invulvelden">
+                <h2>Voornaam:</h2>
+                <input class="txtinput" type="text" required>
+                <h2>Achternaam:</h2>
+                <input class="txtinput" type="text" required>
+                <h2>E-mail:</h2>
+                <input id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" type="email" required>
+            </div>
+            <div class="probleem">
+                <p><b>Uw vraag:</b></p>
+                <textarea rows="2" cols="25" id="vraag" placeholder="Type hier uw vraag" required></textarea><br>
+                <input type="submit" value="Verzenden">
+            </div>
+        </form>
+        <footer>
+            <div class="socials">
+                <h2 class="txtcenter"><u>Social media</u></h2>
+                <p class="txtcenter"><a id="fcb" href="#facebook">Facebook</a></p>
+            </div>
+            <div class="contact">
+                <h2 class="txtcenter"><u>Contact</u></h2>
+                <h3 class="txtcenter">info@defluitendefietser.nl</h3>
+            </div>
+            <div class="alg">
+                <h3 class="txtcenter">&#169; 2021 Fluitende fietser</h3>
+                <p class="txtcenter">Algemene voorwaarde</p>
+                <p class="txtcenter">KVK: 88599665 | BTW NL999888492Z09</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
