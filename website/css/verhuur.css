@@ -1,9 +1,9 @@
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 769px) {
     .verhuur {
         background-color: #F7F9FB;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         display: grid;
-        grid-template-columns: 0.6fr 1.6fr 0.6fr;
+        grid-template-columns: 1fr max-content 1fr;
         grid-template-rows: 1fr 1.7fr 0.3fr;
         gap: 0px 0px;
         grid-template-areas: 
@@ -44,10 +44,135 @@
         grid-area: picsL;
     }
     .picsR {
-        margin: auto;
+        margin-top: auto;
+        margin-bottom: auto;
         grid-area: picsR;
     }
     .vrkppic{
+        width: 90%;
+    }
+    .vrkppic1{
+        float: right;
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 768px) and (min-width: 601px){
+    .verhuur {
+        background-color: #F7F9FB;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display: grid;
+        grid-template-columns: 1fr max-content 1fr;
+        grid-template-rows: 1fr 1.7fr 0.3fr;
+        gap: 0px 0px;
+        grid-template-areas: 
+        "picsL tabel picsR" 
+        "picsL tabel picsR" 
+        "picsL knop picsR"
+        ;
+    }
+
+    /*submit knop*/
+    #submit {
+        width: max-content;
+    }
+    .knop {
+        margin: auto;
+        grid-area: knop;
+    }
+
+    /*table in het midden*/
+    .tabel {
+        margin: auto;
+        grid-area: tabel;
+    }
+    table{
+        border: 1px black solid;
+        border-collapse: collapse;
+        text-align: center;
         width: 100%;
+        font-size: 10px;
+    }
+    tr{
+        padding: 100px;
+        border: 1px solid black;
+    }
+
+    /*foto's links en rechts*/
+    .picsL {
+        margin: auto;
+        grid-area: picsL;
+    }
+    .picsR {
+        margin-top: auto;
+        margin-bottom: auto;
+        grid-area: picsR;
+    }
+    .vrkppic{
+        width: 90%;
+    }
+    .vrkppic1{
+        float: right;
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 600px){
+    .verhuur {
+        background-color: #F7F9FB;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: max-content max-content max-content 1fr;
+        gap: 10px;
+        grid-template-areas: 
+        "tabel tabel" 
+        "tabel tabel" 
+        "knop knop"
+        "picsL picsR"
+        ;
+        padding: 3%;
+    }
+
+    /*submit knop*/
+    #submit {
+        width: max-content;
+    }
+    .knop {
+        margin: auto;
+        grid-area: knop;
+    }
+
+    /*table in het midden*/
+    .tabel {
+        margin: auto;
+        grid-area: tabel;
+    }
+    table{
+        border: 1px black solid;
+        border-collapse: collapse;
+        text-align: center;
+        width: 100%;
+        font-size: 10px;
+    }
+    tr{
+        padding: 100px;
+        border: 1px solid black;
+    }
+
+    /*foto's links en rechts*/
+    .picsL {
+        margin: auto;
+        grid-area: picsL;
+    }
+    .picsR {
+        margin-top: auto;
+        margin-bottom: auto;
+        grid-area: picsR;
+    }
+    .vrkppic{
+        width: 90%;
+    }
+    .vrkppic1{
+        float: right;
+        width: 90%;
     }
 }

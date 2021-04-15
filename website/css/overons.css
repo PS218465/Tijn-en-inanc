@@ -1,4 +1,4 @@
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1101px) {
     .overons{
         background-color: #F7F9FB;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -32,5 +32,37 @@
     ol{
         text-align: center;
         list-style-position: inside;
+    }
+}
+@media only screen and (max-width: 1100px) {
+    .overons{
+        background-color: #F7F9FB;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content;
+        gap: 0px 0px;
+        grid-template-areas:
+          "pic"
+          "inf";
+          padding: 3%;
+    }
+    .pic{
+        margin-left: auto;
+        margin-right: auto;
+        grid-area: pic;
+        transition: 300ms;
+    }
+    .inf{
+        text-align: center;
+        grid-area: inf;
+    }
+    #alg{
+        font-size: large;
+    }
+    ol{
+        margin: auto;
+        width: max-content;
+        text-align: center;
     }
 }

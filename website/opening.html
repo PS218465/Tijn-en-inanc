@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/MainStylesheet.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/openingtijd.css">
-    <script src="popup.js"></script>
     <title>Home</title>
 </head>
 
@@ -34,7 +33,7 @@
         </nav>
         <div class="opng">
             <div class="tbl">
-                <table>
+                <table class="tbl1">
                     <tr>
                         <th colspan="2" class="txtcenter">Openingtijden</th>
                     </tr>
@@ -86,7 +85,7 @@
                     </tr>
                 </table>
             </div>
-            <div class="rst" id="googleMap"></div>
+            <div style="height: 300px; width: 60%; grid-area: map; margin: auto;" class="rst" id="googleMap"></div>
             <script>
                 function myMap() {
                     var mapProp = {

@@ -17,7 +17,7 @@ li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 20px;
     font-family: 'Roboto Condensed',sans-serif;
     font-weight: bold;
 }
@@ -52,7 +52,7 @@ li a:hover{
 }
 @media only screen and (max-width: 550px) {
     li a {
-        font-size: 10px;
+        font-size: 12px;
         padding: 5px 7px;
     }
     h2,h3{
