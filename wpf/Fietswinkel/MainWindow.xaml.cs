@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using System.Windows.Threading;
+
 namespace Fietswinkel
 {
     /// <summary>
@@ -20,15 +22,32 @@ namespace Fietswinkel
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        int teller = 0;
         public MainWindow()
         {
             InitializeComponent();
-          
+            //nieuw
+            DispatcherTimer progress = new DispatcherTimer();
+            progress.Interval = new TimeSpan(0,0,1);
+            progress.Tick += Progress_Tick;
+            progress.Start();
 
         }
+
+        private void Progress_Tick(object sender, EventArgs e)
+        {
+            teller++;
+            bar.Value = teller;
+            if (teller > 59)
+            {
+                MessageBox.Show("je bent te lang afk!");
+                this.Close();
+            }
+        }
+
         private void btnbestel_Click(object sender, RoutedEventArgs e)
         {
+            teller = 0;
             // haalt de combobox fiets op
             ComboBoxItem selected1 = fietsen.SelectedItem as ComboBoxItem;
          
@@ -92,7 +111,7 @@ namespace Fietswinkel
                 {
                     Foreground = Brushes.White,
                     Text = "€ "+Convert.ToString(optel),
-                    Name = "product3"
+                    Name = "product3",
                 };
                 sp.Children.Add(txtproduct3);
                 lijst.Items.Add(sp);
@@ -193,6 +212,7 @@ namespace Fietswinkel
 
         private void fietsen_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            teller = 0;
             //de geslecteerde item word opgelsagen en word omgezet naar een string
             ComboBoxItem selected1 = fietsen.SelectedItem as ComboBoxItem;
             string value= aantal.Text.ToString();
@@ -205,6 +225,7 @@ namespace Fietswinkel
 
         private void verzekeringen_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            teller = 0;
             ComboBoxItem selected2 = verzekeringen.SelectedItem as ComboBoxItem;
             if (selected2 != null)
             {
@@ -215,6 +236,7 @@ namespace Fietswinkel
 
         private void services_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            teller = 0;
             ComboBoxItem selected3 = services.SelectedItem as ComboBoxItem;
             if (selected3 != null)
             {
@@ -225,29 +247,37 @@ namespace Fietswinkel
 
         private void delete(object sender, MouseButtonEventArgs e)
         {
+//HEAD
+            teller = 0;
             StackPanel sp = lijst.SelectedItem as StackPanel;
             double optel = 0;
-            foreach (TextBlock item in sp.Children.OfType<TextBlock>())
+            var Result = MessageBox.Show("Weet je zeker dat je het wilt verwijderen", "", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (Result == MessageBoxResult.Yes)
             {
-
-                if (item.Name == "product3")
+                foreach (TextBlock item in sp.Children.OfType<TextBlock>())
                 {
-                    double ttl = Convert.ToDouble(bedrag.Text);
 
-                    string prijs = item.Text;
-                    string[] argumenten = prijs.Split('€');
-                    optel = Double.Parse(argumenten[1]);
-                    double uitkomst = ttl - optel;
-                    string bdrg =Convert.ToString(uitkomst);
-                    bedrag.Text = bdrg;
-                    lijst.Items.Remove(lijst.SelectedItem);
+                    if (item.Name == "product3")
+                    {
+                        double ttl = Convert.ToDouble(bedrag.Text);
+
+                        string prijs = item.Text;
+                        string[] argumenten = prijs.Split('€');
+                        optel = Double.Parse(argumenten[1]);
+                        double uitkomst = ttl - optel;
+                        string bdrg = Convert.ToString(uitkomst);
+                        bedrag.Text = bdrg;
+                        lijst.Items.Remove(lijst.SelectedItem);
+
+
+                    }
 
                 }
-            
             }
         }
         private void next_Click(object sender, RoutedEventArgs e)
         {
+            teller = 0;
             int count = lijst.Items.Count;
             if (count >= 1)
             {
@@ -262,6 +292,12 @@ namespace Fietswinkel
                 }
             }
 
+        }
+
+        private void rek(object sender, RoutedEventArgs e)
+        {
+            subwindow win = new subwindow();
+            win.Show();
         }
     }
 }
