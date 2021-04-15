@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using System.Windows.Threading;
+
 namespace Fietswinkel
 {
     /// <summary>
@@ -20,15 +22,32 @@ namespace Fietswinkel
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        int teller = 0;
         public MainWindow()
         {
             InitializeComponent();
-          
+            //nieuw
+            DispatcherTimer progress = new DispatcherTimer();
+            progress.Interval = new TimeSpan(0,0,1);
+            progress.Tick += Progress_Tick;
+            progress.Start();
 
         }
+
+        private void Progress_Tick(object sender, EventArgs e)
+        {
+            teller++;
+            bar.Value = teller;
+            if (teller > 59)
+            {
+                MessageBox.Show("je bent te lang afk!");
+                this.Close();
+            }
+        }
+
         private void btnbestel_Click(object sender, RoutedEventArgs e)
         {
+            teller = 0;
             // haalt de combobox fiets op
             ComboBoxItem selected1 = fietsen.SelectedItem as ComboBoxItem;
          
@@ -42,6 +61,12 @@ namespace Fietswinkel
             string antl = aantal.Text.ToString();
             int getal = Convert.ToInt32(antl);
 
+            string days = "dag";
+            if (getal > 1)
+            {
+                days= "dagen";
+            }
+
             string pric = bedrag.Text.ToString();
             double plus = double.Parse(pric);
 
@@ -51,16 +76,47 @@ namespace Fietswinkel
                 string[] split = fiets.Split(' ');
                 double number = double.Parse(split[2]);
                 double optel = number * getal;
-                double uitkomst = optel += plus;
-                string price = Convert.ToString(uitkomst);
+               
+                 plus =optel + plus;
+                string price = Convert.ToString(plus);
                 bedrag.Text = price;
 
-                
-                lijst.Items.Add(fiets+" "+antl);
+            
                 verzekeringen.IsEnabled = true;
                 services.IsEnabled = true;
                 fietsen.SelectedIndex = -1;
                 aantal.Text = "1";
+
+      
+                StackPanel sp = new StackPanel()
+                {
+                    Background = Brushes.Black,
+                    Orientation = Orientation.Horizontal,
+                };
+                TextBlock txtproduct = new TextBlock()
+                {
+                    Foreground = Brushes.White,
+                    Text = fiets+" ",
+                    Name = "product"                
+                };
+                sp.Children.Add(txtproduct);
+                TextBlock txtproduct2 = new TextBlock()
+                {
+                    Foreground = Brushes.White,
+                    Text = antl+ " "+days+" ",
+                    Name = "product2"
+                };
+                sp.Children.Add(txtproduct2);
+                TextBlock txtproduct3 = new TextBlock()
+                {
+                    Foreground = Brushes.White,
+                    Text = "€ "+Convert.ToString(optel),
+                    Name = "product3"
+                };
+                sp.Children.Add(txtproduct3);
+                lijst.Items.Add(sp);
+
+
             }
             else if (selected2 != null)
             {
@@ -68,15 +124,44 @@ namespace Fietswinkel
                 string[] split2 = verzekering.Split(' ');
                 double number2 = double.Parse(split2[2]);
                 double optel2 = number2 * getal;
-                double uitkomst2 = optel2 += plus;
+                double uitkomst2 = optel2 + plus;
                 string price = Convert.ToString(uitkomst2);
                 bedrag.Text = price;
 
-                lijst.Items.Add(verzekering + " " + antl);
                 fietsen.IsEnabled = true;
                 services.IsEnabled = true;
                 verzekeringen.SelectedIndex = -1;
                 aantal.Text = "1";
+
+
+                StackPanel sp = new StackPanel()
+                {
+                    Background = Brushes.Black,
+                    Orientation = Orientation.Horizontal,
+                };
+                TextBlock txtproduct = new TextBlock()
+                {
+                    Foreground = Brushes.White,
+                    Text = verzekering + " ",
+                    Name = "product"
+                };
+                sp.Children.Add(txtproduct);
+                TextBlock txtproduct2 = new TextBlock()
+                {
+                    Foreground = Brushes.White,
+                    Text = antl + days + " ",
+                    Name = "product2"
+                };
+                sp.Children.Add(txtproduct2);
+                TextBlock txtproduct3 = new TextBlock()
+                {
+                    Foreground = Brushes.White,
+                    Text = "€" + Convert.ToString(optel2),
+                    Name = "product3"
+                };
+                sp.Children.Add(txtproduct3);
+                lijst.Items.Add(sp);
+
             }
             else if (selected3 != null)
             {
@@ -84,21 +169,50 @@ namespace Fietswinkel
                 string[] split3 = service.Split(' ');
                 double number3 = double.Parse(split3[2]);
                 double optel3 = number3 * getal;
-                double uitkomst3 = optel3 += plus;
+                double uitkomst3 = optel3 + plus;
                 string price = Convert.ToString(uitkomst3);
                 bedrag.Text = price;
 
-                lijst.Items.Add(service + " " + antl);
                 fietsen.IsEnabled = true;
                 verzekeringen.IsEnabled = true;
                 services.SelectedIndex = -1;
                 aantal.Text = "1";
+
+
+                StackPanel sp = new StackPanel()
+                {
+                    Background = Brushes.Black,
+                    Orientation = Orientation.Horizontal,
+                };
+                TextBlock txtproduct = new TextBlock()
+                {
+                    Foreground = Brushes.White,
+                    Text = service + " ",
+                    Name = "product1"
+                };
+                sp.Children.Add(txtproduct);
+                TextBlock txtproduct2 = new TextBlock()
+                {
+                    Foreground = Brushes.White,
+                    Text = antl + days + " ",
+                    Name = "product2"
+                };
+                sp.Children.Add(txtproduct2);
+                TextBlock txtproduct3 = new TextBlock()
+                {
+                    Foreground = Brushes.White,
+                    Text = "€" + Convert.ToString(optel3),
+                    Name = "product3"
+                };
+                sp.Children.Add(txtproduct3);
+                lijst.Items.Add(sp);
             }
          
         }
 
         private void fietsen_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            teller = 0;
             //de geslecteerde item word opgelsagen en word omgezet naar een string
             ComboBoxItem selected1 = fietsen.SelectedItem as ComboBoxItem;
             string value= aantal.Text.ToString();
@@ -111,6 +225,7 @@ namespace Fietswinkel
 
         private void verzekeringen_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            teller = 0;
             ComboBoxItem selected2 = verzekeringen.SelectedItem as ComboBoxItem;
             if (selected2 != null)
             {
@@ -121,6 +236,7 @@ namespace Fietswinkel
 
         private void services_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            teller = 0;
             ComboBoxItem selected3 = services.SelectedItem as ComboBoxItem;
             if (selected3 != null)
             {
@@ -131,25 +247,36 @@ namespace Fietswinkel
 
         private void delete(object sender, MouseButtonEventArgs e)
         {
-           string pak = lijst.SelectedItem.ToString();
-            string[] split = pak.Split(' ');
-            double number = double.Parse(split[2]) * double.Parse(split[5]);
-
-            string antl = bedrag.Text.ToString();
-            int getal = Convert.ToInt32(antl);
-
-            var result = MessageBox.Show("weet je zeker dat je de bestelling wilt verwijderen", "caption", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            teller = 0;
+            StackPanel sp = lijst.SelectedItem as StackPanel;
+            double optel = 0;
+            var Result = MessageBox.Show("Weet je zeker dat je het wilt verwijderen", "", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (Result == MessageBoxResult.Yes)
             {
-                double reken = getal - number;
-                string uitkokmst = reken.ToString();
-                bedrag.Text = uitkokmst;
-                lijst.Items.Remove(pak); // verwijderd de selected item
+                foreach (TextBlock item in sp.Children.OfType<TextBlock>())
+                {
+
+                    if (item.Name == "product3")
+                    {
+                        double ttl = Convert.ToDouble(bedrag.Text);
+
+                        string prijs = item.Text;
+                        string[] argumenten = prijs.Split('€');
+                        optel = Double.Parse(argumenten[1]);
+                        double uitkomst = ttl - optel;
+                        string bdrg = Convert.ToString(uitkomst);
+                        bedrag.Text = bdrg;
+                        lijst.Items.Remove(lijst.SelectedItem);
+
+
+                    }
+
+                }
             }
         }
-
         private void next_Click(object sender, RoutedEventArgs e)
         {
+            teller = 0;
             int count = lijst.Items.Count;
             if (count >= 1)
             {

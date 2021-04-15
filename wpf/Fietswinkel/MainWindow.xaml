@@ -78,6 +78,9 @@
             <TextBlock x:Name="totaal" Grid.Row="4"  Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Width="180">te betalen bedrag €</TextBlock>
             <TextBlock x:Name="bedrag" Grid.Row="4"  Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16" Width="160">0,00</TextBlock>
             <Button x:Name="next" Grid.Column="1" Grid.Row="5" Height="25" Width="100" Click="next_Click">Volgende Klant</Button>
+            
+            <!--progress bar-->
+            <ProgressBar x:Name="bar" Minimum="0" Maximum="60" Grid.Row="5" Margin="20"></ProgressBar>
         </Grid>
     </Grid>
 </Window>
