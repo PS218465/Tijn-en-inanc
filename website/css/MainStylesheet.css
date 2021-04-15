@@ -314,7 +314,7 @@ body {
     }
     #zoek {
         transition: 200ms;
-        width: 100px;
+        width: 50px;
     }
     #zoek:hover {
         transition: 200ms;
@@ -322,8 +322,12 @@ body {
         width: 100px;
     }
     input[type=text] {
+        margin: auto;
         width: 100%;
         font-size: larger;
+    }
+    #zoekbalk{
+        height: 30%;
     }
     /*NAV css*/
     nav {
