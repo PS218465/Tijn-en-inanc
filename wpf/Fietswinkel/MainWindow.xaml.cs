@@ -247,6 +247,7 @@ namespace Fietswinkel
 
         private void delete(object sender, MouseButtonEventArgs e)
         {
+<<<<<<< HEAD
             teller = 0;
             StackPanel sp = lijst.SelectedItem as StackPanel;
             double optel = 0;
@@ -272,6 +273,27 @@ namespace Fietswinkel
                     }
 
                 }
+=======
+            StackPanel sp = lijst.SelectedItem as StackPanel;
+            double optel = 0;
+            foreach (TextBlock item in sp.Children.OfType<TextBlock>())
+            {
+
+                if (item.Name == "product3")
+                {
+                    double ttl = Convert.ToDouble(bedrag.Text);
+
+                    string prijs = item.Text;
+                    string[] argumenten = prijs.Split('€');
+                    optel = Double.Parse(argumenten[1]);
+                    double uitkomst = ttl - optel;
+                    string bdrg =Convert.ToString(uitkomst);
+                    bedrag.Text = bdrg;
+                    lijst.Items.Remove(lijst.SelectedItem);
+
+                }
+            
+>>>>>>> b7b1d905064129d6fac6adb41d08067cd3081b76
             }
         }
         private void next_Click(object sender, RoutedEventArgs e)
