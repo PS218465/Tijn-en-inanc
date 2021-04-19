@@ -55,9 +55,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="kassa.xaml.cs">
+      <DependentUpon>kassa.xaml</DependentUpon>
+    </Compile>
     <Compile Include="subwindow.xaml.cs">
       <DependentUpon>subwindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="time.xaml.cs">
+      <DependentUpon>time.xaml</DependentUpon>
+    </Compile>
+    <Page Include="kassa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -71,6 +81,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="subwindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="time.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -103,6 +117,20 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="assets\bkgrnd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\10 euro.png" />
+    <Resource Include="assets\100 euro.jpg" />
+    <Resource Include="assets\10eurocent.jpg" />
+    <Resource Include="assets\1euro.jpg" />
+    <Resource Include="assets\20 euro.jpg" />
+    <Resource Include="assets\200 euro.jpg" />
+    <Resource Include="assets\20eurocent.jpg" />
+    <Resource Include="assets\2euro.jpeg" />
+    <Resource Include="assets\5 euro.png" />
+    <Resource Include="assets\50 euro.png" />
+    <Resource Include="assets\50eurocent.jpg" />
+    <Resource Include="assets\5eurocent.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

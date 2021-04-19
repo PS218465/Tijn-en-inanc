@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -38,7 +39,7 @@ namespace Fietswinkel
         {
             teller++;
             bar.Value = teller;
-            if (teller > 1000)
+            if (teller > 59)
             {
                 MessageBox.Show("je bent te lang afk!");
                 this.Close();
@@ -56,156 +57,163 @@ namespace Fietswinkel
 
             // haalt de combobox services op
             ComboBoxItem selected3 = services.SelectedItem as ComboBoxItem;
-          
+
             //haalt de aantal van de dagen op
-            string antl = aantal.Text.ToString();
-            int getal = Convert.ToInt32(antl);
-
-            string days = "dag";
-            if (getal > 1)
+            try
             {
-                days= "dagen";
+                string antl = aantal.Text.ToString();
+                int getal = Convert.ToInt32(antl);
+
+                string days = "dag";
+                if (getal > 1)
+                {
+                    days = "dagen";
+                }
+
+                string pric = bedrag.Text.ToString();
+                double plus = double.Parse(pric);
+
+                if (selected1 != null)
+                {
+                    string fiets = selected1.Content.ToString();
+                    string[] split = fiets.Split(' ');
+                    double number = double.Parse(split[2]);
+                    double optel = number * getal;
+
+                    plus = optel + plus;
+                    string price = Convert.ToString(plus);
+                    bedrag.Text = price;
+
+
+                    verzekeringen.IsEnabled = true;
+                    services.IsEnabled = true;
+                    fietsen.SelectedIndex = -1;
+                    aantal.Text = "1";
+
+
+                    StackPanel sp = new StackPanel()
+                    {
+                        Background = Brushes.Black,
+                        Orientation = Orientation.Horizontal,
+                    };
+                    TextBlock txtproduct = new TextBlock()
+                    {
+                        Foreground = Brushes.White,
+                        Text = fiets + " ",
+                        Name = "product"
+                    };
+                    sp.Children.Add(txtproduct);
+                    TextBlock txtproduct2 = new TextBlock()
+                    {
+                        Foreground = Brushes.White,
+                        Text = antl + " " + days + " ",
+                        Name = "product2"
+                    };
+                    sp.Children.Add(txtproduct2);
+                    TextBlock txtproduct3 = new TextBlock()
+                    {
+                        Foreground = Brushes.White,
+                        Text = "€ " + Convert.ToString(optel),
+                        Name = "product3",
+                    };
+                    sp.Children.Add(txtproduct3);
+                    lijst.Items.Add(sp);
+
+
+                }
+                else if (selected2 != null)
+                {
+                    string verzekering = selected2.Content.ToString();
+                    string[] split2 = verzekering.Split(' ');
+                    double number2 = double.Parse(split2[2]);
+                    double optel2 = number2 * getal;
+                    double uitkomst2 = optel2 + plus;
+                    string price = Convert.ToString(uitkomst2);
+                    bedrag.Text = price;
+
+                    fietsen.IsEnabled = true;
+                    services.IsEnabled = true;
+                    verzekeringen.SelectedIndex = -1;
+                    aantal.Text = "1";
+
+
+                    StackPanel sp = new StackPanel()
+                    {
+                        Background = Brushes.Black,
+                        Orientation = Orientation.Horizontal,
+                    };
+                    TextBlock txtproduct = new TextBlock()
+                    {
+                        Foreground = Brushes.White,
+                        Text = verzekering + " ",
+                        Name = "product"
+                    };
+                    sp.Children.Add(txtproduct);
+                    TextBlock txtproduct2 = new TextBlock()
+                    {
+                        Foreground = Brushes.White,
+                        Text = antl + days + " ",
+                        Name = "product2"
+                    };
+                    sp.Children.Add(txtproduct2);
+                    TextBlock txtproduct3 = new TextBlock()
+                    {
+                        Foreground = Brushes.White,
+                        Text = "€" + Convert.ToString(optel2),
+                        Name = "product3"
+                    };
+                    sp.Children.Add(txtproduct3);
+                    lijst.Items.Add(sp);
+
+                }
+                else if (selected3 != null)
+                {
+                    string service = selected3.Content.ToString();
+                    string[] split3 = service.Split(' ');
+                    double number3 = double.Parse(split3[2]);
+                    double optel3 = number3 * getal;
+                    double uitkomst3 = optel3 + plus;
+                    string price = Convert.ToString(uitkomst3);
+                    bedrag.Text = price;
+
+                    fietsen.IsEnabled = true;
+                    verzekeringen.IsEnabled = true;
+                    services.SelectedIndex = -1;
+                    aantal.Text = "1";
+
+
+                    StackPanel sp = new StackPanel()
+                    {
+                        Background = Brushes.Black,
+                        Orientation = Orientation.Horizontal,
+                    };
+                    TextBlock txtproduct = new TextBlock()
+                    {
+                        Foreground = Brushes.White,
+                        Text = service + " ",
+                        Name = "product1"
+                    };
+                    sp.Children.Add(txtproduct);
+                    TextBlock txtproduct2 = new TextBlock()
+                    {
+                        Foreground = Brushes.White,
+                        Text = antl + days + " ",
+                        Name = "product2"
+                    };
+                    sp.Children.Add(txtproduct2);
+                    TextBlock txtproduct3 = new TextBlock()
+                    {
+                        Foreground = Brushes.White,
+                        Text = "€" + Convert.ToString(optel3),
+                        Name = "product3"
+                    };
+                    sp.Children.Add(txtproduct3);
+                    lijst.Items.Add(sp);
+                }
             }
-
-            string pric = bedrag.Text.ToString();
-            double plus = double.Parse(pric);
-
-            if (selected1 != null)
+            catch
             {
-                string fiets = selected1.Content.ToString();
-                string[] split = fiets.Split(' ');
-                double number = double.Parse(split[2]);
-                double optel = number * getal;
-               
-                 plus =optel + plus;
-                string price = Convert.ToString(plus);
-                bedrag.Text = price;
-
-            
-                verzekeringen.IsEnabled = true;
-                services.IsEnabled = true;
-                fietsen.SelectedIndex = -1;
-                aantal.Text = "1";
-
-      
-                StackPanel sp = new StackPanel()
-                {
-                    Background = Brushes.Black,
-                    Orientation = Orientation.Horizontal,
-                };
-                TextBlock txtproduct = new TextBlock()
-                {
-                    Foreground = Brushes.White,
-                    Text = fiets+" ",
-                    Name = "product"                
-                };
-                sp.Children.Add(txtproduct);
-                TextBlock txtproduct2 = new TextBlock()
-                {
-                    Foreground = Brushes.White,
-                    Text = antl+ " "+days+" ",
-                    Name = "product2"
-                };
-                sp.Children.Add(txtproduct2);
-                TextBlock txtproduct3 = new TextBlock()
-                {
-                    Foreground = Brushes.White,
-                    Text = "€ "+Convert.ToString(optel),
-                    Name = "product3",
-                };
-                sp.Children.Add(txtproduct3);
-                lijst.Items.Add(sp);
-
-
-            }
-            else if (selected2 != null)
-            {
-                string verzekering = selected2.Content.ToString();
-                string[] split2 = verzekering.Split(' ');
-                double number2 = double.Parse(split2[2]);
-                double optel2 = number2 * getal;
-                double uitkomst2 = optel2 + plus;
-                string price = Convert.ToString(uitkomst2);
-                bedrag.Text = price;
-
-                fietsen.IsEnabled = true;
-                services.IsEnabled = true;
-                verzekeringen.SelectedIndex = -1;
-                aantal.Text = "1";
-
-
-                StackPanel sp = new StackPanel()
-                {
-                    Background = Brushes.Black,
-                    Orientation = Orientation.Horizontal,
-                };
-                TextBlock txtproduct = new TextBlock()
-                {
-                    Foreground = Brushes.White,
-                    Text = verzekering + " ",
-                    Name = "product"
-                };
-                sp.Children.Add(txtproduct);
-                TextBlock txtproduct2 = new TextBlock()
-                {
-                    Foreground = Brushes.White,
-                    Text = antl + days + " ",
-                    Name = "product2"
-                };
-                sp.Children.Add(txtproduct2);
-                TextBlock txtproduct3 = new TextBlock()
-                {
-                    Foreground = Brushes.White,
-                    Text = "€" + Convert.ToString(optel2),
-                    Name = "product3"
-                };
-                sp.Children.Add(txtproduct3);
-                lijst.Items.Add(sp);
-
-            }
-            else if (selected3 != null)
-            {
-                string service = selected3.Content.ToString();
-                string[] split3 = service.Split(' ');
-                double number3 = double.Parse(split3[2]);
-                double optel3 = number3 * getal;
-                double uitkomst3 = optel3 + plus;
-                string price = Convert.ToString(uitkomst3);
-                bedrag.Text = price;
-
-                fietsen.IsEnabled = true;
-                verzekeringen.IsEnabled = true;
-                services.SelectedIndex = -1;
-                aantal.Text = "1";
-
-
-                StackPanel sp = new StackPanel()
-                {
-                    Background = Brushes.Black,
-                    Orientation = Orientation.Horizontal,
-                };
-                TextBlock txtproduct = new TextBlock()
-                {
-                    Foreground = Brushes.White,
-                    Text = service + " ",
-                    Name = "product1"
-                };
-                sp.Children.Add(txtproduct);
-                TextBlock txtproduct2 = new TextBlock()
-                {
-                    Foreground = Brushes.White,
-                    Text = antl + days + " ",
-                    Name = "product2"
-                };
-                sp.Children.Add(txtproduct2);
-                TextBlock txtproduct3 = new TextBlock()
-                {
-                    Foreground = Brushes.White,
-                    Text = "€" + Convert.ToString(optel3),
-                    Name = "product3"
-                };
-                sp.Children.Add(txtproduct3);
-                lijst.Items.Add(sp);
+                MessageBox.Show("u moet de aantal dagen in cijfers aan geven! (er mag geen gebruik gemakt worden van letters)");
             }
          
         }
@@ -290,6 +298,17 @@ namespace Fietswinkel
                     verzekeringen.SelectedIndex = -1;
                     services.SelectedIndex = -1;
                 }
+                else
+                {
+                    kassa kassa = new kassa();
+                    kassa.Show();
+                    this.Close();
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("er zijn nog geen bestellingen toegevoegd");
             }
 
         }
@@ -298,6 +317,20 @@ namespace Fietswinkel
         {
             subwindow win = new subwindow();
             win.Show();
+            this.Close();
+        }
+
+        private void check(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(aantal.Text);
+        }
+
+        private void time_Click(object sender, RoutedEventArgs e)
+        {
+            time time = new time();
+            time.Show();
+            this.Close();
         }
     }
 }

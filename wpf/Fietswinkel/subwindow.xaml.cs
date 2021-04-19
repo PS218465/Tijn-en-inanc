@@ -47,7 +47,7 @@ namespace Fietswinkel
             delen.Click += factors_Click;
             keer.Click += factors_Click;
 
-            
+
         }
         string laatstesom = " ";
         string current = " ";
@@ -81,14 +81,14 @@ namespace Fietswinkel
                     current = " ";
                     current_som.Text = current;
                 }
-                
+
             }
-            
-                Button button = sender as Button;
-                current += button.Content.ToString();
-                current_som.Text = current;
-                //MessageBox.Show(button.Content.ToString());
-            
+
+            Button button = sender as Button;
+            current += button.Content.ToString();
+            current_som.Text = current;
+            //MessageBox.Show(button.Content.ToString());
+
         }
         private void is_(object sender, RoutedEventArgs e)
         {
@@ -115,7 +115,7 @@ namespace Fietswinkel
                     {
                         double i = double.Parse(splt[1]) - double.Parse(splt[3]);
                         uitkomst = i.ToString();
-                        
+
                     }
                     else if (splt[2] == "*")
                     {
