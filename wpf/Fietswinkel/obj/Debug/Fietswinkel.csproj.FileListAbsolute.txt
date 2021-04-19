@@ -28,3 +28,5 @@ C:\wamp64\www\project 2\Tijn-en-inanc\wpf\Fietswinkel\obj\Debug\Fietswinkel.cspr
 C:\wamp64\www\project 2\Tijn-en-inanc\wpf\Fietswinkel\obj\Debug\Fietswinkel.csproj.CoreCompileInputs.cache
 C:\wamp64\www\project 2\Tijn-en-inanc\wpf\Fietswinkel\obj\Debug\Fietswinkel.exe
 C:\wamp64\www\project 2\Tijn-en-inanc\wpf\Fietswinkel\obj\Debug\Fietswinkel.pdb
+C:\wamp64\www\project 2\Tijn-en-inanc\wpf\Fietswinkel\obj\Debug\subwindow.g.cs
+C:\wamp64\www\project 2\Tijn-en-inanc\wpf\Fietswinkel\obj\Debug\subwindow.baml

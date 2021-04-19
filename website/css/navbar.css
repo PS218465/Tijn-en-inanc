@@ -6,14 +6,14 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: skyblue;
+    background-color: gray;
     height: 100%;
     width: 100%;
 }
 
 li a {
     display: block;
-    color: black;
+    color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -22,7 +22,7 @@ li a {
     font-weight: bold;
 }
 li a:hover{
-    background-color: #309ca6;
+    background-color: skyblue;
     border-radius: 5%;
 }
 @media only screen and (min-width: 900px) and (max-width: 1200px){

@@ -1,32 +1,24 @@
 .idx {
-    height: max-content;
-    display: grid;
-    grid-template-columns: 0.6fr 1fr 0.6fr;
-    grid-template-rows: 1fr;
-    gap: 0px 0px;
-    grid-template-areas: ". form .";
     background-color: #F7F9FB;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
-form {
-    grid-area: form;
-    text-align: center;
+.container{
+    height: auto;
 }
-
 .txtinput {
     height: 5%;
     width: 80%;
 }
-@media only screen and (max-width: 768px) {
-    .idx {
-        height: max-content;
-        display: grid;
-        grid-template-columns: 0.2fr 1fr 0.2fr;
-        grid-template-rows: 1fr;
-        gap: 0px 0px;
-        grid-template-areas: ". form .";
-        background-color: #F7F9FB;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
+form{
+    text-align: center;
+}
+#whoops{
+    width: 50%;
+}
+.invoer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas: ". .";
 }

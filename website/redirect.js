@@ -7,3 +7,6 @@ function redirect() {
         }
     }
 }
+function goback(){
+    location.replace("/project 2/Tijn-en-inanc/website/fietverhuur.php");
+}

@@ -2,12 +2,30 @@ body {
     height: max-content;
     max-width: 80%;
     margin: auto;
-    font-family: Arial, Helvetica, sans-serif; 
+    font-family: Arial, Helvetica; 
+}
+.white{
+    color: white;
+}
+#white{
+    color: white;
 }
 .txtcenter{
     text-align: center;
 }
 .mrgn{
+    margin: auto;
+}
+#fcbook{
+    display: block;
+    margin: auto;
+    width: 10%;
+}
+#name{
+    color: white;
+}
+#picss{
+    display: block;
     margin: auto;
 }
 @media only screen and (min-width: 768px) {
@@ -105,7 +123,7 @@ body {
         transition: background-color 0.6s ease;
     }
     .active {
-       border-bottom: #309ca6 2px solid;
+       border-bottom: skyblue 5px solid;
     }
     /*footer css*/
     footer {
@@ -119,10 +137,11 @@ body {
         grid-template-areas: "social contact alg";
     }
     .social{
+        color: white;
         grid-area: social;
     }
     #fcb{
-        color: black;
+        color: white;
     }
     .contact{
         grid-area: contact;
@@ -243,6 +262,7 @@ body {
     }
     /*footer css*/
     footer {
+        color: white;
         grid-area: footer;
         background-color: skyblue;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -307,6 +327,10 @@ body {
         width: 20%;
         grid-area: logo;
         margin: auto;
+    }
+    #name{
+        color: white;
+        font-size: medium;
     }
     .zoekbalk {
         display: flex;
