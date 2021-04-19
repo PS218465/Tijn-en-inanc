@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="css/MainStylesheet.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/xtra.css">
-    <script src="redirect.js"></script>
+    <script src="js/redirect.js"></script>
+    <script src="js/searchbar.js"></script>
     <title>Home</title>
 </head>
 
@@ -19,17 +20,17 @@
             <h1 class="txtcenter" id="name">De Fluitende fietser</h1>
             <div class="zoekbalk">
                 <img id="zoek" src="images/zoek.png">
-                <input type="text">
+                <input onkeyup="search()" type="text" id="searchbar">
             </div>
         </div>
         <nav>
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="fietss.html">Fietspagina</a></li>
-                <li><a href="fietverhuur.php">Fietsverhuur</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="opening.html">Openingtijden</a></li>
-                <li><a href="overons.html">Over ons</a></li>
+            <ul id="list">
+                <li class="items"><a href="home.html">Home</a></li>
+                <li class="items"><a href="fietss.html">Fietspagina</a></li>
+                <li class="items"><a href="fietverhuur.php">Fietsverhuur</a></li>
+                <li class="items"><a href="contact.html">Contact</a></li>
+                <li class="items"><a href="opening.html">Openingtijden</a></li>
+                <li class="items"><a href="overons.html">Over ons</a></li>
             </ul>
         </nav>
         <div class="idx"> <form>
@@ -57,7 +58,7 @@
                 }
                     if(!empty($_POST['lang'])) {    
                         foreach($_POST['lang'] as $value){
-                            echo $value.'<br/>';
+                            echo "<p class='gkzfiets'>Je hebt de fiets = <b>".$value."</b> gekozen!</p>".'<br/>';
                         }
                     }
 

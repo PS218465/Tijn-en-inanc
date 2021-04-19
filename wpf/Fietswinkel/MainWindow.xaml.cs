@@ -262,25 +262,26 @@ namespace Fietswinkel
             var Result = MessageBox.Show("Weet je zeker dat je het wilt verwijderen", "", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (Result == MessageBoxResult.Yes)
             {
-                foreach (TextBlock item in sp.Children.OfType<TextBlock>())
-                {
-
-                    if (item.Name == "product3")
+                    foreach (TextBlock item in sp.Children.OfType<TextBlock>())
                     {
-                        double ttl = Convert.ToDouble(bedrag.Text);
 
-                        string prijs = item.Text;
-                        string[] argumenten = prijs.Split('€');
-                        optel = Double.Parse(argumenten[1]);
-                        double uitkomst = ttl - optel;
-                        string bdrg = Convert.ToString(uitkomst);
-                        bedrag.Text = bdrg;
-                        lijst.Items.Remove(lijst.SelectedItem);
+                        if (item.Name == "product3")
+                        {
+                            double ttl = Convert.ToDouble(bedrag.Text);
 
+                            string prijs = item.Text;
+                            string[] argumenten = prijs.Split('€');
+                            optel = Double.Parse(argumenten[1]);
+                            double uitkomst = ttl - optel;
+                            string bdrg = Convert.ToString(uitkomst);
+                            bedrag.Text = bdrg;
+                            lijst.Items.Remove(lijst.SelectedItem);
+
+
+                        }
 
                     }
-
-                }
+                
             }
         }
         private void next_Click(object sender, RoutedEventArgs e)
@@ -302,8 +303,6 @@ namespace Fietswinkel
                 {
                     kassa kassa = new kassa();
                     kassa.Show();
-                    this.Close();
-
                 }
             }
             else
@@ -317,8 +316,6 @@ namespace Fietswinkel
         {
             subwindow win = new subwindow();
             win.Show();
-            teller = 0;
-            laadbalk.Stop();
         }
 
         private void check(object sender, TextCompositionEventArgs e)
@@ -331,8 +328,6 @@ namespace Fietswinkel
         {
             time time = new time();
             time.Show();
-            teller = 0;
-            laadbalk.Stop();
         }
     }
 }
