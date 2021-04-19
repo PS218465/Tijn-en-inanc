@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 using System.Windows.Threading;
 
 namespace Fietswinkel
@@ -24,14 +23,15 @@ namespace Fietswinkel
     public partial class MainWindow : Window
     {
         int teller = 0;
+        DispatcherTimer laadbalk = new DispatcherTimer();
+        
         public MainWindow()
         {
             InitializeComponent();
             //nieuw
-            DispatcherTimer progress = new DispatcherTimer();
-            progress.Interval = new TimeSpan(0,0,1);
-            progress.Tick += Progress_Tick;
-            progress.Start();
+            laadbalk.Interval = new TimeSpan(0, 0, 1);
+            laadbalk.Tick += Progress_Tick;
+            laadbalk.Start();
 
         }
 
@@ -255,7 +255,7 @@ namespace Fietswinkel
 
         private void delete(object sender, MouseButtonEventArgs e)
         {
-//HEAD
+
             teller = 0;
             StackPanel sp = lijst.SelectedItem as StackPanel;
             double optel = 0;
@@ -317,7 +317,8 @@ namespace Fietswinkel
         {
             subwindow win = new subwindow();
             win.Show();
-            this.Close();
+            teller = 0;
+            laadbalk.Stop();
         }
 
         private void check(object sender, TextCompositionEventArgs e)
@@ -330,7 +331,8 @@ namespace Fietswinkel
         {
             time time = new time();
             time.Show();
-            this.Close();
+            teller = 0;
+            laadbalk.Stop();
         }
     }
 }

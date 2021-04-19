@@ -20,96 +20,83 @@ namespace Fietswinkel
     /// </summary>
     public partial class time : Window
     {
-
+        bool i = false;
         DispatcherTimer timer = new DispatcherTimer();
         public time()
         {
             InitializeComponent();
             timer.Interval = new TimeSpan(0, 0, 0, 0, 1000); // geeft de timer in seconden aan
-            timer.Tick += Timer_Tick; // linkt de time met de functie 
+            timer.Tick += Timer_Tick; ; // linkt de time met de functie 
 
         }
+        //lokale vars voor teller en min,sec en uren
+        int teller = 0;
+        int tijdS = 0;
+        int tijdM = 0;
+        int tijdU = 0;
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            //haalt alle ingevulden dingen op
+            tijdS = int.Parse(seconden.Text);
+            tijdM = int.Parse(minuten.Text);
+            tijdU = int.Parse(uren.Text);
+            
+            //begint met tellen
+            teller = tijdS;
+            teller++;
 
+            seconden.Text = teller.ToString("00");
+            if (tijdS > 58)//als seconden 60 hit word een minuut verhoogd 
+            {
+                //seconden word gereset
+                teller = 0;
+                tijdS = 0;
+                seconden.Text = teller.ToString("00");
+
+
+                tijdM++;
+                minuten.Text = tijdM.ToString("00");
+            }
+            if (tijdM > 59)//als minuut 60 hit word uur 1 vehoogd
+            {
+                //minuut wordt gereset
+                teller = 0;
+                tijdM = 0;
+                minuten.Text = teller.ToString("00");
+
+                tijdU++;
+                uren.Text = tijdU.ToString("00");
+            }
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-                if (startstopbtn.Content.ToString() == "start de tijd")
-                {
-                    timer.Start();
-                    startstopbtn.Content = "(re)Set tijd";
-
-                seconden.IsReadOnly = true;
-                minuten.IsReadOnly = true;
-                uren.IsReadOnly = true;
-                }
-                else if (startstopbtn.Content.ToString() == "(re)Set tijd")
-                {
-                    timer.Stop();
-                    startstopbtn.Content = "start de tijd";
-
-                seconden.IsReadOnly = false;
-                minuten.IsReadOnly = false;
-                uren.IsReadOnly = false;
-
-                seconden.Text = "00";
-                minuten.Text = "00";
-                uren.Text = "00";
-            }
-        }
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-
-            try
+            if (i == false)//verander de knop en bool zodat je niks meer kan invoeren
             {
-                double sec = Convert.ToDouble(seconden.Text); // haalt de waarde op en zet hem in een double 
-                double min = Convert.ToDouble(minuten.Text);// haalt de waarde op en zet hem in een double 
-                double uur = Convert.ToDouble(uren.Text);// haalt de waarde op en zet hem in een double 
-
-
-
-                string second = Convert.ToString(sec);// zet de seconden in een string
-                string minutes = Convert.ToString(min);
-                string hour = Convert.ToString(uur);
-                seconden.Text = second; // doet de seconde in de textbox 
-
-
-                sec += 1; // doet elke seconden plus 1
-
-                if (sec > 59)
-                {
-                    sec = 0;
-
-                    seconden.Text = second; // doet de seconde in de textbox 
-                    min += 1;
-
-                    minuten.Text = minutes;
-                }
-                else if (min > 59)
-                {
-                    minutes = "00";
-
-                    uur ++;
-                    uren.Text = hour;
-                }
-                else if (uur == 24)
-                {
-                    second = "00";
-                    minutes = "00";
-                    hour = "00";
-                }
+                i = true;
+                timer.Start();
+                startstopbtn.Content = "(re)set timer";
+                seconden.IsEnabled = false;
+                minuten.IsEnabled = false;
+                uren.IsEnabled = false;
             }
-            catch
+            else
             {
-                MessageBox.Show("u mag geen letters gebruiken bij het invullen");
-                seconden.Text = "00";
-                minuten.Text ="00";
-                uren.Text ="00";
-
+                //veranderd alles terug
+                startstopbtn.Content = "start de timer";
+                i = false;
                 timer.Stop();
-                startstopbtn.Content = "start de tijd";
+                tijdS = 0;
+                tijdM = 0;
+                tijdU = 0;
+                seconden.Text = tijdS.ToString("00");
+                minuten.Text = tijdM.ToString("00");
+                uren.Text = tijdU.ToString("00");
+                seconden.IsEnabled = true;
+                minuten.IsEnabled = true;
+                uren.IsEnabled = true;
             }
-         }
-     
+            
+        }
     }
 }

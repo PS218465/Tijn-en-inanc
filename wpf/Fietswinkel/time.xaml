@@ -18,11 +18,11 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <WrapPanel Orientation="Horizontal" Grid.Column="1">
-            <TextBox x:Name="uren" Grid.Column="1" Foreground="LightGray" Width="30" FontSize="25" Background="Black"  >00</TextBox>
+            <TextBox MaxLength="2" x:Name="uren" Grid.Column="1" Foreground="LightGray" Width="30" FontSize="25" Background="Black"  >00</TextBox>
             <TextBlock Grid.Column="1" Foreground="LightGray" Width="10" FontSize="25" Background="Black" TextAlignment="Center">:</TextBlock>
-            <TextBox x:Name="minuten" Grid.Column="1" Foreground="LightGray" Width="30" FontSize="25" Background="Black">00</TextBox>
+            <TextBox  MaxLength="2" x:Name="minuten" Grid.Column="1" Foreground="LightGray" Width="30" FontSize="25" Background="Black">00</TextBox>
             <TextBlock Grid.Column="1" Foreground="LightGray" Width="10" FontSize="25" Background="Black" TextAlignment="Center">:</TextBlock>
-            <TextBox x:Name="seconden" Grid.Column="1" Foreground="LightGray" Width="30" FontSize="25" Background="Black">00</TextBox>
+            <TextBox MaxLength="2" x:Name="seconden" Grid.Column="1" Foreground="LightGray" Width="30" FontSize="25" Background="Black">00</TextBox>
         </WrapPanel>
         <Button x:Name="startstopbtn" Grid.Column="1" Grid.Row="1" Width="80" Height="20" Click="Button_Click" >start de tijd</Button>
     </Grid>
