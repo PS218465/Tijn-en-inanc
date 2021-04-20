@@ -81,7 +81,8 @@ namespace Fietswinkel
                     double optel = number * getal; // doet de bedrag keer de aantal dagen
 
                     plus = optel + plus; // doet het bedrag + het totaal bedrag 
-                    string price = Convert.ToString(plus); // doet variable plus in een string
+                    
+                    string price = plus.ToString("0.00"); // doet variable plus in een string
                     bedrag.Text = price; // zet de bedrag in de textblock
 
                     // schakeld de comboboxen weer in
@@ -130,7 +131,7 @@ namespace Fietswinkel
                     double number2 = double.Parse(split2[2]);
                     double optel2 = number2 * getal;
                     double uitkomst2 = optel2 + plus;
-                    string price = Convert.ToString(uitkomst2);
+                    string price = uitkomst2.ToString("0.00");
                     bedrag.Text = price;
 
                     fietsen.IsEnabled = true;
@@ -176,7 +177,7 @@ namespace Fietswinkel
                     double number3 = double.Parse(split3[2]);
                     double optel3 = number3 * getal;
                     double uitkomst3 = optel3 + plus;
-                    string price = Convert.ToString(uitkomst3);
+                    string price = uitkomst3.ToString("0.00");
                     bedrag.Text = price;
 
                     fietsen.IsEnabled = true;
@@ -276,7 +277,7 @@ namespace Fietswinkel
                             string[] argumenten = prijs.Split('€'); // split de text vanaf de euro teken
                             optel = Double.Parse(argumenten[1]);// pakt de bedrag in de string
                             double uitkomst = ttl - optel; // doet het bedrag van het totaal prijs af
-                            string bdrg = Convert.ToString(uitkomst); // zet de uitkomst in een string
+                            string bdrg = uitkomst.ToString("0.00"); // zet de uitkomst in een string
                             bedrag.Text = bdrg; // doet de nieuwe totaal bedrag in de textblock
                             lijst.Items.Remove(lijst.SelectedItem); // verwijderd de item 
 
