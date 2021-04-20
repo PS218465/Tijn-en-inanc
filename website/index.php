@@ -53,7 +53,7 @@
                     <textarea class='txtinput' id='stad' type='text' ></textarea>
                     <h3>postcode</h3>
                     <textarea class='txtinput' id='postcode' pattern='[1-9][0-9]{3}\s?[a-zA-Z]{2}' type='text' ></textarea>
-                    <input type='submit' id='download-btn' value='Gegevens verzenden'></div>
+                    <input type='button' id='download-btn' value='Gegevens verzenden'></div>
                     <div class='fietsen'>";
                     if(!empty($_POST['lang'])) {    
                         foreach($_POST['lang'] as $value){
@@ -69,7 +69,7 @@
 
                 </form></div>
 
-        <script src="./FileSaver.min.js"></script><!--save as library-->
+        <script src="./js/FileSaver.min.js"></script><!--save as library-->
         <script>
             //maak tekst bestand aan
             document.getElementById("download-btn").addEventListener("click", function () {
