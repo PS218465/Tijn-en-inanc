@@ -1,0 +1,434 @@
+body {
+    height: max-content;
+    max-width: 80%;
+    margin: auto;
+    font-family: Arial, Helvetica; 
+}
+.white{
+    color: white;
+}
+#white{
+    color: white;
+}
+.txtcenter{
+    text-align: center;
+}
+.mrgn{
+    margin: auto;
+}
+#fcbook{
+    display: block;
+    margin: auto;
+    width: 10%;
+}
+#name{
+    color: white;
+}
+#picss{
+    display: block;
+    margin: auto;
+}
+@media only screen and (min-width: 768px) {
+    .container {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content max-content max-content max-content;
+        gap: 12px 0px;
+        grid-template-areas: "logo" "NAV" "info"  "footer";
+    }
+    /*logo css*/
+    .logo {
+        grid-area: logo;
+        width: 100%;
+        background-color: skyblue;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content 1fr;
+        grid-template-areas: "logo" "zoekbalk";
+    }
+    #logo {
+        width: 20%;
+        grid-area: logo;
+        margin: auto;
+    }
+    .zoekbalk {
+        display: flex;
+        margin: 2px;
+    }
+    #zoek {
+        transition: 200ms;
+        width: 100px;
+    }
+    #zoek:hover {
+        transition: 200ms;
+        background-color: white;
+        width: 100px;
+    }
+    input[type=text] {
+        width: 100%;
+        font-size: larger;
+    }
+    /*NAV css*/
+    nav {
+        background-color: skyblue;
+        grid-area: NAV;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    /*content css*/
+    .info {
+        height: 100%;
+        background-color: #F7F9FB;
+        grid-area: info;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .infocontainer {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content 1fr;
+        gap: 10% 0px;
+        grid-template-areas: "open" "pics";
+    }
+    #OofD {
+        margin: auto;
+        grid-area: open;
+    }
+    .Carousel {
+        height: 100%;
+        grid-area: pics;
+    }
+    .sfeer {
+        border: 5px black solid;
+        width: 37%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+    
+    .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+    }
+    .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        transition: background-color 0.6s ease;
+    }
+    .active {
+       border-bottom: skyblue 5px solid;
+    }
+    /*footer css*/
+    footer {
+        grid-area: footer;
+        background-color: skyblue;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 0px 0px;
+        grid-template-areas: "social contact alg";
+    }
+    .social{
+        color: white;
+        grid-area: social;
+    }
+    #fcb{
+        color: white;
+    }
+    .contact{
+        grid-area: contact;
+    }
+    .alg{
+        grid-area: alg;
+    }
+    
+}
+@media only screen and (min-width: 768px) and (max-width: 1200px){
+    p{
+        font-size: small;
+    }
+}
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+    body {
+        height: max-content;
+        max-width: 90%;
+        margin: auto;
+        font-family: Arial, Helvetica, sans-serif; 
+    }
+    .container {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content max-content max-content max-content;
+        gap: 12px 0px;
+        grid-template-areas: "logo" "NAV" "info"  "footer";
+    }
+    /*logo css*/
+    .logo {
+        grid-area: logo;
+        width: 100%;
+        background-color: skyblue;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content 1fr;
+        grid-template-areas: "logo" "zoekbalk";
+    }
+    #logo {
+        width: 20%;
+        grid-area: logo;
+        margin: auto;
+    }
+    .zoekbalk {
+        display: flex;
+        margin: 2px;
+    }
+    #zoek {
+        transition: 200ms;
+        width: 50px;
+    }
+    #zoek:hover {
+        transition: 200ms;
+        background-color: white;
+        width: 100px;
+    }
+    input[type=text] {
+        width: 100%;
+        font-size: larger;
+        height: 50%;
+    }
+    /*NAV css*/
+    nav {
+        background-color: skyblue;
+        grid-area: NAV;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    /*content css*/
+    .info {
+        height: 100%;
+        background-color: #F7F9FB;
+        grid-area: info;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .infocontainer {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content 1fr;
+        gap: 10% 0px;
+        grid-template-areas: "open" "pics";
+    }
+    #OofD {
+        margin: auto;
+        grid-area: open;
+    }
+    .Carousel {
+        height: 100%;
+        grid-area: pics;
+    }
+    .sfeer {
+        border: 5px black solid;
+        width: 37%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+    
+    .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+    }
+    .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        transition: background-color 0.6s ease;
+    }
+    .active {
+       border-bottom: #309ca6 2px solid;
+    }
+    /*footer css*/
+    footer {
+        color: white;
+        grid-area: footer;
+        background-color: skyblue;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 0px 0px;
+        grid-template-areas: "social contact alg";
+    }
+    .txtcenter{
+        font-size: small;
+    }
+    .social{
+        grid-area: social;
+    }
+    #fcb{
+        color: black;
+    }
+    .contact{
+        grid-area: contact;
+    }
+    .alg{
+        grid-area: alg;
+    }
+}
+/* @media only screen and (max-width: 550px) and (min-width: 426px) {
+    .txtcenter{
+        font-size: 9px;
+    }
+} */
+@media only screen and (max-width: 426px) {
+    body {
+        height: max-content;
+        max-width: 99%;
+        margin: auto;
+        font-family: Arial, Helvetica, sans-serif; 
+    }
+    .container {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content max-content max-content max-content;
+        gap: 12px 0px;
+        grid-template-areas: 
+        "logo" 
+        "NAV" 
+        "info"  
+        "footer";
+    }
+    /*logo css*/
+    .logo {
+        grid-area: logo;
+        width: 100%;
+        background-color: skyblue;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content 1fr;
+        grid-template-areas: "logo" "zoekbalk";
+    }
+    #logo {
+        width: 20%;
+        grid-area: logo;
+        margin: auto;
+    }
+    #name{
+        color: white;
+        font-size: medium;
+    }
+    .zoekbalk {
+        display: flex;
+        margin: 2px;
+    }
+    #zoek {
+        transition: 200ms;
+        width: 50px;
+    }
+    #zoek:hover {
+        transition: 200ms;
+        background-color: white;
+        width: 100px;
+    }
+    input[type=text] {
+        margin: auto;
+        width: 100%;
+        font-size: larger;
+    }
+    #zoekbalk{
+        height: 30%;
+    }
+    /*NAV css*/
+    nav {
+        background-color: skyblue;
+        grid-area: NAV;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    /*content css*/
+    .info {
+        height: 100%;
+        background-color: #F7F9FB;
+        grid-area: info;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .infocontainer {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content 1fr;
+        gap: 10% 0px;
+        grid-template-areas: "open" "pics";
+    }
+    #OofD {
+        margin: auto;
+        grid-area: open;
+    }
+    .Carousel {
+        height: 100%;
+        grid-area: pics;
+    }
+    .sfeer {
+        border: 5px black solid;
+        width: 37%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+    
+    .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+    }
+    .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        transition: background-color 0.6s ease;
+    }
+    .active {
+       border-bottom: #309ca6 2px solid;
+    }
+    /*footer css*/
+    footer {
+        grid-area: footer;
+        background-color: skyblue;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display: grid;
+        grid-template-columns: 1fr ;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 0px 0px;
+        grid-template-areas: "social" "contact" "alg";
+    }
+    .social{
+        grid-area: social;
+    }
+    #fcb{
+        color: black;
+    }
+    .contact{
+        grid-area: contact;
+    }
+    .alg{
+        grid-area: alg;
+    }
+}
