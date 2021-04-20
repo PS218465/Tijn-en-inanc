@@ -55,7 +55,6 @@
                     <textarea class='txtinput' id='postcode' pattern='[1-9][0-9]{3}\s?[a-zA-Z]{2}' type='text' ></textarea>
                     <input type='submit' id='download-btn' value='Gegevens verzenden'></div>
                     <div class='fietsen'>";
-                }
                     if(!empty($_POST['lang'])) {    
                         foreach($_POST['lang'] as $value){
                             echo "<p class='gkzfiets'>Je hebt de fiets = <b>".$value."</b> gekozen!</p>".'<br/>';
@@ -63,6 +62,8 @@
                     }
 
                     echo "</div></div>";
+                }
+                    
                     
                 ?>
 
