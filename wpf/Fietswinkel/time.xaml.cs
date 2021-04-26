@@ -69,6 +69,18 @@ namespace Fietswinkel
                     tijdU++;
                     uren.Text = tijdU.ToString("00");
                 }
+                if (tijdU > 24)
+                {
+                    teller = 0;
+                    tijdS = 0;
+                    tijdU = 0;
+
+                    seconden.Text = teller.ToString("00");
+
+                    minuten.Text = tijdM.ToString("00");
+
+                    uren.Text = tijdU.ToString("00");
+                }
             }
             catch
             {

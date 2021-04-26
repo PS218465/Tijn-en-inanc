@@ -297,17 +297,16 @@ namespace Fietswinkel
                 var result = MessageBox.Show("is de bestelling al betaald?", "caption", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes) // als als op yes is gedrukt
                 {
+                    MessageBox.Show("bedankt voor uw bestelling!");
                     lijst.Items.Clear(); // listbox word leeg gehaald
                     bedrag.Text = "0,00"; // bedrag word op 0 euro gezet
                     // comboboxen worden leeggehaald
                     fietsen.SelectedIndex = -1;
                     verzekeringen.SelectedIndex = -1;
                     services.SelectedIndex = -1;
+
                 }
-                else
-                {
-   
-                }
+
             }
             else
             {
